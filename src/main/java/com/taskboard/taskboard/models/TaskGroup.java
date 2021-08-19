@@ -1,3 +1,7 @@
+/**
+ * @author Matheus Marques
+ */
+
 package com.taskboard.taskboard.models;
 
 import java.time.LocalDate;
@@ -8,14 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
-
-/**
- * @author Matheus Marques
- */
 
 @Entity
-@Table(name = "taskGroups")
+@Table(name = "task_groups")
 public class TaskGroup {
 
     @Id
@@ -25,8 +24,9 @@ public class TaskGroup {
     @Column
     private String name;
 
-    @Column
-    private List<Task> tasks;
+    /*
+     * @Column private List<Task> tasks;
+     */
 
     @Column
     private LocalDate createdAt;
@@ -50,13 +50,11 @@ public class TaskGroup {
         this.name = name;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
-    }
+    /*
+     * public List<Task> getTasks() { return tasks; }
+     * 
+     * public void setTasks(List<Task> tasks) { this.tasks = tasks; }
+     */
 
     public LocalDate getCreatedAt() {
         return createdAt;

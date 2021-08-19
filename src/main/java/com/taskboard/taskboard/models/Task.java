@@ -1,8 +1,8 @@
-package com.taskboard.taskboard.models;
-
 /**
  * @author Matheus Marques
  */
+
+package com.taskboard.taskboard.models;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -29,12 +29,6 @@ public class Task {
 
     @Column
     private LocalDate conclusionDate;
-
-    @Column
-    private LocalDate createdAt;
-
-    @Column
-    private LocalDate updatedAt;
 
     public UUID getId() {
         return id;
@@ -66,21 +60,5 @@ public class Task {
 
     public void setConclusionDate(LocalDate conclusionDate) {
         this.conclusionDate = conclusionDate;
-    }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDate getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }
