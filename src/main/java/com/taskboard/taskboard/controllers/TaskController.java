@@ -4,6 +4,7 @@
 
 package com.taskboard.taskboard.controllers;
 
+import java.util.List;
 import java.util.UUID;
 import com.taskboard.taskboard.models.Task;
 import com.taskboard.taskboard.services.TaskService;
@@ -34,6 +35,11 @@ public class TaskController {
     @GetMapping(value = "/{id}")
     public Task fetchTaskByUUID(@PathVariable("id") UUID id) {
         return taskService.findByUUID(id);
+    }
+
+    @GetMapping
+    public List<Task> fetchAllTasks() {
+        return taskService.findAllTasks();
     }
 
     @PutMapping(value = "/{id}")
