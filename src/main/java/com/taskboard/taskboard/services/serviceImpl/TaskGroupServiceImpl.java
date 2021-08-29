@@ -7,8 +7,12 @@ package com.taskboard.taskboard.services.serviceImpl;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import com.taskboard.taskboard.models.Task;
 import com.taskboard.taskboard.models.TaskGroup;
+import com.taskboard.taskboard.repositories.TaskAndTaskGroupRepository;
 import com.taskboard.taskboard.repositories.TaskGroupRepository;
+import com.taskboard.taskboard.repositories.TaskRepository;
 import com.taskboard.taskboard.services.TaskGroupService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,9 @@ public class TaskGroupServiceImpl implements TaskGroupService {
 
     @Autowired
     TaskGroupRepository taskGroupRepository;
+
+    @Autowired
+    TaskAndTaskGroupRepository taskAndTaskGroupRepository;
 
     @Override
     public TaskGroup createTaskGroup(TaskGroup taskGroup) {

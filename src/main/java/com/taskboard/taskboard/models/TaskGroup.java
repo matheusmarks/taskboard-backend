@@ -32,6 +32,7 @@ public class TaskGroup {
 
     @OneToMany(mappedBy = "task_group", cascade = CascadeType.ALL)
     @JsonManagedReference
+    @Column
     private List<Task> tasks;
 
     public String getName() {

@@ -6,6 +6,8 @@ package com.taskboard.taskboard.controllers;
 
 import java.util.List;
 import java.util.UUID;
+
+import com.taskboard.taskboard.models.Task;
 import com.taskboard.taskboard.models.TaskGroup;
 import com.taskboard.taskboard.services.TaskGroupService;
 import org.springframework.beans.factory.annotation.Autowired;

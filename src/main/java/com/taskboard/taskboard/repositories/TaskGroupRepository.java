@@ -4,7 +4,9 @@
 
 package com.taskboard.taskboard.repositories;
 
+import java.util.List;
 import java.util.UUID;
+import com.taskboard.taskboard.models.Task;
 import com.taskboard.taskboard.models.TaskGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

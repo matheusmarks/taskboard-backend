@@ -48,7 +48,14 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task updateTask(UUID id, Task task) {
         Task updatedTask = taskRepository.findById(id).get();
-        BeanUtils.copyProperties(task, updatedTask, "task_id");
+
+        String groupName = task.getGroup_name();
+
+        TaskGroup a = taskGroupRepository.findByGroupName(groupName);
+
+        task.setTask_group(a);
+
+        BeanUtils.copyProperties(task, updatedTask, "task_id", "task_group_id");
         return taskRepository.save(updatedTask);
     }
 

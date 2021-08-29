@@ -7,6 +7,7 @@ package com.taskboard.taskboard.services;
 import java.util.List;
 import java.util.UUID;
 
+import com.taskboard.taskboard.models.Task;
 import com.taskboard.taskboard.models.TaskGroup;
 
 public interface TaskGroupService {
