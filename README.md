@@ -29,7 +29,7 @@
  
  ```bash
 # Clonar o repositório
-$ git clone https://github.com/matheusmarks/taskboard-frontend
+$ git clone https://github.com/matheusmarks/taskboard-backend
 
 # Ir para a pasta do projeto
 $ cd taskboard-frontend
@@ -43,14 +43,14 @@ $ npm dev ou yarn dev
 ```
 
 <p>Será necessário criar um banco no postgres chamado 'taskboard' e depois mude <strong>spring.jpa.hibernate.ddl-auto</strong> para create no arquivo application.properties: </p>
-```java
+
+```
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
 spring.datasource.url= jdbc:postgresql://localhost:5432/taskboard
 spring.datasource.username=(Seu username postgres)
 spring.datasource.password=(Sua senha postgres)
 spring.jpa.hibernate.ddl-auto=create (após a primeira execução do projeto, mude para update)
 spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
-
 ```
 
 
