@@ -43,7 +43,7 @@ $ npm dev ou yarn dev
 ```
 
 <p>Será necessário criar um banco no postgres chamado 'taskboard' e depois mude <strong>spring.jpa.hibernate.ddl-auto</strong> para create no arquivo application.properties: </p>
-```
+```bash
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
 spring.datasource.url= jdbc:postgresql://localhost:5432/taskboard
 spring.datasource.username=(Seu username postgres)
