@@ -5,9 +5,8 @@
 package com.taskboard.taskboard.services.serviceImpl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-
+import java.util.stream.Collectors;
 import com.taskboard.taskboard.models.Task;
 import com.taskboard.taskboard.models.TaskGroup;
 import com.taskboard.taskboard.repositories.TaskAndTaskGroupRepository;
@@ -23,6 +22,13 @@ public class TaskGroupServiceImpl implements TaskGroupService {
 
     @Autowired
     TaskGroupRepository taskGroupRepository;
+
+    @Autowired
+    TaskServiceImpl taskService;
+
+    @Autowired
+
+    TaskRepository taskRepository;
 
     @Autowired
     TaskAndTaskGroupRepository taskAndTaskGroupRepository;
@@ -45,8 +51,24 @@ public class TaskGroupServiceImpl implements TaskGroupService {
     @Override
     public TaskGroup updateTaskGroup(UUID id, TaskGroup taskGroup) {
         TaskGroup updatedTaskGroup = taskGroupRepository.findById(id).get();
+        List<Task> tasks = taskRepository.findAll();
+
         BeanUtils.copyProperties(taskGroup, updatedTaskGroup, "task_group_id");
-        return taskGroupRepository.save(updatedTaskGroup);
+
+        TaskGroup saveTaskGroup = taskGroupRepository.save(updatedTaskGroup);
+
+        System.out.println(saveTaskGroup.getTask_group_id());
+
+        List<Task> allTasks = tasks.stream()
+                .filter(task -> task.getTask_group().getTask_group_id() == saveTaskGroup.getTask_group_id())
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < allTasks.size(); i++) {
+            allTasks.get(i).setGroup_name(taskGroup.getName());
+            taskService.updateTask(allTasks.get(i).getTask_id(), allTasks.get(i));
+        }
+
+        return saveTaskGroup;
     }
 
     @Override

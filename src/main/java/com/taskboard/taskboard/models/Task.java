@@ -92,5 +92,4 @@ public class Task {
     public void setTask_group(TaskGroup task_group) {
         this.task_group = task_group;
     }
-
 }
